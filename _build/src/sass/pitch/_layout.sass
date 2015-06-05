@@ -1,0 +1,93 @@
+.wrapper-pitch
+  //colors
+  $color_lochinvar_approx: #348781
+  $black: black
+  $color_quill_gray_approx: lightgrey
+  $gray:  gray
+
+  //fonts
+  $font_0: Alike
+  $font_1: sans-serif
+
+  font: 14pt $font_0, $font_1
+
+  /*----------------------------------
+   * main
+  /*----------------------------------
+
+  .main
+    width: 308px
+    margin: 30px auto 0
+
+  button
+    display: inline
+    width: 95px
+    height: 60px
+    border: 3px solid #000
+    font-size: 14px
+    +transition(all 0.2s ease 0s)
+
+    &:hover
+      color: #fff
+      background-color: #000
+
+  #note 
+    font-size: 164px
+    display: inline-block
+    height: 180px
+    text-align: left
+
+  .droptarget 
+    background-color: $color_lochinvar_approx
+
+  div 
+    &.confident 
+      color: $black
+
+    &.vague 
+      color: $color_quill_gray_approx
+
+  #detector 
+    width: 300px
+    height: 340px
+    margin-top: 20px
+    border: 4px solid $gray
+    border-radius: 8px
+    text-align: center
+    padding-top: 10px
+
+  #output 
+    width: 300px
+    height: 42px
+
+  #flat 
+    display: none
+
+  #sharp 
+    display: none
+
+  .flat #flat 
+    display: inline
+
+  .sharp #sharp 
+    display: inline
+
+  /*----------------------------------
+   * waveform
+  /*----------------------------------
+
+  #waveform
+    display: block
+    width: 512px
+    height: 256px
+    margin: 30px auto 0
+
+  /*----------------------------------
+   * history
+  /*----------------------------------
+
+  #history
+    display: block
+    width: 512px
+    height: 256px
+    margin: 30px auto 0
