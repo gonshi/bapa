@@ -10,8 +10,9 @@ block body
     p.fromSp.sp まずはPCから<br>このサイトを開いてください。
     // pc
     div.soundBtn_container.pc
+      p.soundBtn_msg 以下のボタンから音の種類を変えられます。
       - for (var i=0; i<5; i++){
-        p.sound(data-num="#{i}")
+        p.soundBtn(data-num="#{i}")
           button SOUND #{i+1}
       - }
     div.tutorial_container.pc

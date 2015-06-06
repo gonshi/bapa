@@ -10,7 +10,7 @@ shakeInit = ->
   $caution_container = $( ".caution_container" )
   $qr_container = $( ".qr_container" )
   $tutorial_container = $( ".tutorial_container" )
-  $sound = $( ".sound" )
+  $soundBtn = $( ".soundBtn" )
   $fromSp = $( ".fromSp" )
   $shake = $( ".shake" )
 
@@ -58,8 +58,9 @@ shakeInit = ->
           $tutorial_container.velocity opacity: [ 0, 1 ], DUR, ->
             $tutorial_container.hide()
 
-      $sound.on "click", ( e )->
-        $sound.removeClass "on"
+      $soundBtn.eq( cur_audio ).addClass "on"
+      $soundBtn.on "click", ( e )->
+        $soundBtn.removeClass "on"
         $( e.currentTarget ).addClass "on"
 
         dataStore.send
