@@ -13,6 +13,7 @@ shakeInit = ->
   $sound = $( ".sound" )
   $fromSp = $( ".fromSp" )
   $shake = $( ".shake" )
+  $debug = $( "#debug" )
 
   dataStore = null
   audio = []
@@ -97,7 +98,9 @@ shakeInit = ->
         if data.value.action == "change" && data.value.user_id == user_id
           cur_audio = data.value.num
 
+      count = 0
       accelHandler.listen "SHAKED", ->
+        $debug.text count++
         audio[ cur_audio ].currentTime = 0
         audio[ cur_audio ].play()
 

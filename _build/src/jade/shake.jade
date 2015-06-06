@@ -2,7 +2,7 @@ extends /layout/_application
 block body
   div.wrapper-common.wrapper-shake(data-path="shake")
     // sp
-    p.shake SHAKE!!
+    p.shake.sp SHAKE!!
     div.caution_container.sp
       p.caution このコンテンツは音が出ます。
       p.caution_ok
@@ -19,3 +19,4 @@ block body
     div.qr_container.pc
       p.qr_msg このQRコードをスマホから読み込んでください。<br>QRコードリーダは、LINEアプリの「友達を追加」機能の中にも入っています。
       p.qr
+    include /include/embed/_debug
