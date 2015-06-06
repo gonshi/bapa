@@ -35,11 +35,9 @@ shakeInit = ->
             $fromSp.hide()
             $wrapper.addClass "hide"
             $caution_container.show()
-            _hoge = dataStore.send
+            dataStore.send
               user_id: user_id
               action: "load"
-
-            $( "#debug" ).text _hoge
             break
 
       # PCから見てね
@@ -106,6 +104,7 @@ shakeInit = ->
           cur_audio = data.value.num
 
       accelHandler.listen "SHAKED", ->
+        alert 1
         audio[ cur_audio ].play() if audio[ cur_audio ].paused
 
       accelHandler.exec()
