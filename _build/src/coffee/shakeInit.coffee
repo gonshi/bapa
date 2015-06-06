@@ -1,4 +1,4 @@
-accelHandler = require "./controller/accelHandler"
+accelHandler = require( "./controller/accelHandler" )()
 ticker = require( "./util/ticker" )()
 
 shakeInit = ->
