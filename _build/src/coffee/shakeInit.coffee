@@ -50,6 +50,7 @@ shakeInit = ->
       .appendTo $( ".qr" )
 
       dataStore.on "send", ( data )->
+        console.log data
         if data.value.action == "load" && data.value.user_id == user_id
           $qr_container.velocity opacity: [ 0, 1 ], DUR, -> $qr_container.hide()
 
