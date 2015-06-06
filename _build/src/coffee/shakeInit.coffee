@@ -35,10 +35,11 @@ shakeInit = ->
             $fromSp.hide()
             $wrapper.addClass "hide"
             $caution_container.show()
-            $( "#debug" ).text "#{ dataStore }, #{ dataStore.send }"
-            dataStore.send
+            _hoge = dataStore.send
               user_id: user_id
               action: "load"
+
+            $( "#debug" ).text _hoge
             break
 
       # PCから見てね
