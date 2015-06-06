@@ -13,6 +13,8 @@
   *
 ###
 
+require "../js/velocity.min.js"
+
 if window._DEBUG
   if Object.freeze?
     window.DEBUG = Object.freeze window._DEBUG
@@ -24,8 +26,12 @@ else
   else
     window.DEBUG = state: false
 
+window.DUR = 500
+
 $ ->
   path = $( ".wrapper-common" ).data "path"
 
   if path == "pitch"
     require( "./pitchInit" )()
+  else if path == "shake"
+    require( "./shakeInit" )()

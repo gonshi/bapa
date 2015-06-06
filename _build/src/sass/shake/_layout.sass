@@ -1,0 +1,119 @@
+.wrapper-shake
+  #{$is_sp}
+    position: absolute
+    +trbl(0, 0, 0, 0)
+    overflow: hidden
+
+    &.hide
+      &:before
+        position: absolute
+        +trbl(0, 0, 0, 0)
+        background-color: rgba(0, 0, 0, 0.7)
+        content: ""
+
+    .fromSp
+      position: absolute
+      +trbl(0, 0, 0, 0)
+      height: 3em
+      margin: auto
+      text-align: center
+      font-size: 36px
+
+    .caution_container
+      position: absolute
+      +trbl(0, 0, 0, 0)
+      width: 560px
+      height: 240px
+      margin: auto
+      padding: 40px
+      background-color: #fff
+      border-radius: 10px
+
+    .caution
+      font-size: 32px
+      text-align: center
+
+    .caution_ok
+      position: absolute
+      +trbl(auto, 0, 0, 0)
+
+      button
+        width: 100% 
+        height: 100px
+        line-height: 100px
+        font-size: 32px
+        border-top: 4px solid #000
+
+    .shake
+      position: absolute
+      +trbl(0, 0, 0, 0)
+      height: 1em
+      line-height: 1
+      margin: auto
+      font-size: 128px
+      text-align: center
+      color: #fff
+      +open-face(#000)
+      +shake()
+      +animation(shake 2s linear 0s infinite)
+
+  #{$is_pc}
+    .qr_container
+      position: absolute
+      +trbl(0, 0, 0, 0)
+      background-color: rgba(0, 0, 0, 0.9)
+
+    .qr_msg
+      position: absolute
+      +trbl(50%, 0, auto, 0)
+      margin-top: -320px
+      font-size: 18px
+      color: #fff
+      text-align: center
+
+    .qr
+      position: absolute
+      +trbl(0, 0, 0, 0)
+      width: 500px
+      height: 500px
+      line-height: 500px
+      margin: auto
+      text-align: center
+      background-color: #fff
+      border-radius: 15px
+
+    .tutorial_container
+      position: absolute
+      +trbl(0, 0, 0, 0)
+      background-color: rgba(0, 0, 0, 0.9)
+
+    .tutorial
+      position: absolute
+      +trbl(0, 0, 0, 0)
+      height: 1em
+      line-height: 1
+      margin: auto
+      font-size: 36px
+      text-align: center
+      color: #fff
+
+    .soundBtn_container
+      position: absolute
+      +trbl(0, 0, 0, 0)
+      width: 480px
+      height: 580px
+      margin: auto
+
+    .sound
+      width: 480px
+      height: 100px
+      margin: 20px auto 0
+      color: #fff
+      font-size: 32px
+      background-color: #000
+      border-radius: 20px
+      @extend %hoverEffect
+      @extend %activeEffect
+
+      &:first-child
+        margin-top: 0

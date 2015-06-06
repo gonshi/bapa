@@ -1,0 +1,21 @@
+extends /layout/_application
+block body
+  div.wrapper-common.wrapper-shake(data-path="shake")
+    // sp
+    p.shake SHAKE!!
+    div.caution_container.sp
+      p.caution このコンテンツは音が出ます。
+      p.caution_ok
+        button OK
+    p.fromSp.sp まずはPCから<br>このサイトを開いてください。
+    // pc
+    div.soundBtn_container.pc
+      - for (var i=0; i<5; i++){
+        p.sound(data-num="#{i}")
+          button SOUND #{i+1}
+      - }
+    div.tutorial_container.pc
+      p.tutorial スマホの画面から "OK" を押してください。
+    div.qr_container.pc
+      p.qr_msg このQRコードをスマホから読み込んでください。<br>QRコードリーダは、LINEアプリの「友達を追加」機能の中にも入っています。
+      p.qr
