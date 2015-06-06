@@ -88,7 +88,7 @@ shakeInit = ->
         audio[ i ] = new Audio()
         audio[ i ].src = "audio/#{ i + 1 }.mp3"
         audio[ i ].play()
-        audio[ i ].pause()
+        #audio[ i ].pause()
 
       $caution_container.hide()
       $wrapper.removeClass "hide"
@@ -104,7 +104,6 @@ shakeInit = ->
           cur_audio = data.value.num
 
       accelHandler.listen "SHAKED", ->
-        alert audio[ cur_audio ].paused
         audio[ cur_audio ].play() if audio[ cur_audio ].paused
 
       accelHandler.exec()
