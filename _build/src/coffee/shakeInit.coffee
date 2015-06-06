@@ -35,6 +35,7 @@ shakeInit = ->
             $fromSp.hide()
             $wrapper.addClass "hide"
             $caution_container.show()
+            $( "#debug" ).text "#{ dataStore }, #{ dataStore.send }"
             dataStore.send
               user_id: user_id
               action: "load"
