@@ -119,7 +119,4 @@ shakeInit = ->
     $fromSp.hide()
     $shake.hide()
 
-  $qr_container.hide()
-  $tutorial_container.hide()
-
 module.exports = shakeInit
