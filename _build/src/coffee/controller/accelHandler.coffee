@@ -14,12 +14,9 @@ class AccelHandler extends EventDispatcher
     @thr = if window.isAndroid then 12 else 8
 
   exec: ->
-    $debug = $( "#debug" )
-    count = 0
     throttle = new Throttle 50
 
     window.addEventListener "devicemotion", ( e )=>
-      $debug.text count++
       throttle.exec =>
         for i in [ 0...@param_length ]
           @last_acc[ @param[ i ] ] = @last_acc[ @param[ i ] ] * 0.9 +

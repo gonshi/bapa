@@ -59,6 +59,9 @@ shakeInit = ->
             $tutorial_container.hide()
 
       $sound.on "click", ( e )->
+        $sound.removeClass "on"
+        $( e.currentTarget ).addClass "on"
+
         dataStore.send
           user_id: user_id
           action: "change"
@@ -95,11 +98,11 @@ shakeInit = ->
 
       dataStore.on "send", ( data )->
         if data.value.action == "change" && data.value.user_id == user_id
+          audio[ cur_audio ].pause()
           cur_audio = data.value.num
 
       accelHandler.listen "SHAKED", ->
-        audio[ cur_audio ].currentTime = 0
-        audio[ cur_audio ].play()
+        audio[ cur_audio ].play() if audio[ cur_audio ].paused
 
       accelHandler.exec()
 
@@ -115,5 +118,8 @@ shakeInit = ->
     $caution_container.hide()
     $fromSp.hide()
     $shake.hide()
+
+  $qr_container.hide()
+  $tutorial_container.hide()
 
 module.exports = shakeInit
