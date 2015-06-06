@@ -88,7 +88,7 @@ shakeInit = ->
         audio[ i ] = new Audio()
         audio[ i ].src = "audio/#{ i + 1 }.mp3"
         audio[ i ].play()
-        #audio[ i ].pause()
+        audio[ i ].pause()
 
       $caution_container.hide()
       $wrapper.removeClass "hide"

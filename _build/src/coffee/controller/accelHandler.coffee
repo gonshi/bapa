@@ -11,7 +11,7 @@ class AccelHandler extends EventDispatcher
     for i in [ 0...@param_length ]
       @last_acc[ @param[ i ] ] = 0
 
-    @thr = if window.isAndroid then 12 else 10.5
+    @thr = if window.isAndroid then 10.5 else 10.5
 
   exec: ->
     throttle = new Throttle 50
