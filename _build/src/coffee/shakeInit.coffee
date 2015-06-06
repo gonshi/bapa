@@ -31,7 +31,7 @@ shakeInit = ->
         for i in [ 0..._param.length ]
           _elem = _param[ i ].split "="
           if decodeURIComponent( _elem[ 0 ] ) == "user_id"
-            user_id = decodeURIComponent _elem[ 1 ]
+            user_id = parseInt( decodeURIComponent _elem[ 1 ] )
             $fromSp.hide()
             $wrapper.addClass "hide"
             $caution_container.show()
@@ -50,12 +50,10 @@ shakeInit = ->
       .appendTo $( ".qr" )
 
       dataStore.on "send", ( data )->
-        console.log data
         if data.value.action == "load" && data.value.user_id == user_id
           $qr_container.velocity opacity: [ 0, 1 ], DUR, -> $qr_container.hide()
 
       dataStore.on "send", ( data )->
-        console.log data
         if data.value.action == "ok" && data.value.user_id == user_id
           $tutorial_container.velocity opacity: [ 0, 1 ], DUR, ->
             $tutorial_container.hide()
