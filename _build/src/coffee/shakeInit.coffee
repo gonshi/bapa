@@ -104,7 +104,7 @@ shakeInit = ->
           cur_audio = data.value.num
 
       accelHandler.listen "SHAKED", ->
-        alert 1
+        alert audio[ cur_audio ].paused
         audio[ cur_audio ].play() if audio[ cur_audio ].paused
 
       accelHandler.exec()
