@@ -103,6 +103,7 @@ shakeInit = ->
         if data.value.action == "change" && data.value.user_id == user_id
           audio[ cur_audio ].pause()
           cur_audio = data.value.num
+          $wrapper.removeClass "color1 color2 color3"
           $wrapper.addClass "color#{ data.value.num + 1 }"
 
       accelHandler.listen "SHAKED", ->
