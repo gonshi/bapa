@@ -68,6 +68,7 @@ shakeInit = ->
           action: "change"
           num: $( e.currentTarget ).data "num"
 
+        $wrapper.removeClass "color1 color2 color3"
         $wrapper.addClass "color#{ $( e.currentTarget ).data( "num" ) + 1 }"
 
   #######################
