@@ -68,7 +68,7 @@ shakeInit = ->
           action: "change"
           num: $( e.currentTarget ).data "num"
 
-        $wrapper.addClass "color#{ $( e.currentTarget ).data "num" + 1 }"
+        $wrapper.addClass "color#{ $( e.currentTarget ).data( "num" ) + 1 }"
 
   #######################
   # EVENT LISTENER
@@ -117,6 +117,8 @@ shakeInit = ->
   $( "<script>" ).attr
     src: "https://cdn.mlkcca.com/v2.0.0/milkcocoa.js"
   .appendTo $( "head" )
+
+  $wrapper.addClass "color1"
 
   if window.isSp
     $caution_container.hide()
