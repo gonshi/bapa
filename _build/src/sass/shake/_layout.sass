@@ -1,4 +1,13 @@
 .wrapper-shake
+  +transition(background-color 0.5s ease 0s)
+
+  &.color1
+    background-color: #E66791
+  &.color2
+    background-color: #659CC3
+  &.color3
+    background-color: #E0DE6C
+
   #{$is_sp}
     position: absolute
     +trbl(0, 0, 0, 0)
@@ -101,7 +110,7 @@
       position: absolute
       +trbl(0, 0, 0, 0)
       width: 480px
-      height: 620px
+      height: 380px
       margin: auto
 
     .soundBtn_msg

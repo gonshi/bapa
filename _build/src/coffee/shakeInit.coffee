@@ -50,7 +50,6 @@ shakeInit = ->
       .appendTo $( ".qr" )
 
       dataStore.on "send", ( data )->
-        console.log data
         if data.value.action == "load" && data.value.user_id == user_id
           $qr_container.velocity opacity: [ 0, 1 ], DUR, -> $qr_container.hide()
 
@@ -68,6 +67,8 @@ shakeInit = ->
           user_id: user_id
           action: "change"
           num: $( e.currentTarget ).data "num"
+
+        $wrapper.addClass "color#{ $( e.currentTarget ).data "num" + 1 }"
 
   #######################
   # EVENT LISTENER
@@ -102,6 +103,7 @@ shakeInit = ->
         if data.value.action == "change" && data.value.user_id == user_id
           audio[ cur_audio ].pause()
           cur_audio = data.value.num
+          $wrapper.addClass "color#{ data.value.num + 1 }"
 
       accelHandler.listen "SHAKED", ->
         audio[ cur_audio ].play() if audio[ cur_audio ].paused
