@@ -49,9 +49,14 @@ shakeInit = ->
         alt: "QRコード"
       .appendTo $( ".qr" )
 
+      $wrapper.one "click", ->
+        $qr_container.velocity opacity: [ 0, 1 ], DUR, -> $qr_container.hide()
+
+      ###
       dataStore.on "send", ( data )->
         if data.value.action == "load" && data.value.user_id == user_id
           $qr_container.velocity opacity: [ 0, 1 ], DUR, -> $qr_container.hide()
+      ###
 
       dataStore.on "send", ( data )->
         if data.value.action == "ok" && data.value.user_id == user_id
@@ -68,8 +73,8 @@ shakeInit = ->
           action: "change"
           num: $( e.currentTarget ).data "num"
 
-        $wrapper.removeClass "color1 color2 color3"
-        $wrapper.addClass "color#{ $( e.currentTarget ).data( "num" ) + 1 }"
+        $wrapper.attr
+          "data-color": "#{ $( e.currentTarget ).data( "num" ) + 1 }"
 
   #######################
   # EVENT LISTENER
@@ -104,8 +109,7 @@ shakeInit = ->
         if data.value.action == "change" && data.value.user_id == user_id
           audio[ cur_audio ].pause()
           cur_audio = data.value.num
-          $wrapper.removeClass "color1 color2 color3"
-          $wrapper.addClass "color#{ data.value.num + 1 }"
+          $wrapper.attr "data-color": "#{ data.value.num + 1 }"
 
       accelHandler.listen "SHAKED", ->
         audio[ cur_audio ].play() if audio[ cur_audio ].paused
