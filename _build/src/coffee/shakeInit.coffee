@@ -17,7 +17,11 @@ shakeInit = ->
   dataStore = null
   audio = []
   cur_audio = 0
-  window.user_id = if window.isSp then null else 824
+
+  if window.isSp
+    window.user_id = null
+  else
+    window.user_id = parseInt( Math.random() * 1000 )
 
   #######################
   # PRIVATE
