@@ -22,7 +22,6 @@ class AccelHandler extends EventDispatcher
           @last_acc[ @param[ i ] ] = @last_acc[ @param[ i ] ] * 0.9 +
           Math.abs( e.accelerationIncludingGravity[ @param[ i ] ] ) * 0.1
 
-          $( "#debug" ).text @last_acc[ @param[ i ] ]
           @dispatch "SHAKED" if @last_acc[ @param[ i ] ] > @thr
 
 getInstance = ->
