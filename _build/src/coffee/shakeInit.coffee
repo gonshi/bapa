@@ -17,7 +17,7 @@ shakeInit = ->
   dataStore = null
   audio = []
   cur_audio = 0
-  user_id = if window.isSp then null else 824
+  window.user_id = if window.isSp then null else 824
 
   #######################
   # PRIVATE
@@ -31,12 +31,12 @@ shakeInit = ->
         for i in [ 0..._param.length ]
           _elem = _param[ i ].split "="
           if decodeURIComponent( _elem[ 0 ] ) == "user_id"
-            user_id = parseInt( decodeURIComponent _elem[ 1 ] )
+            window.user_id = parseInt( decodeURIComponent _elem[ 1 ] )
             $fromSp.hide()
             $wrapper.addClass "hide"
             $caution_container.show()
             dataStore.send
-              user_id: user_id
+              user_id: window.user_id
               action: "load"
             break
 
@@ -45,7 +45,7 @@ shakeInit = ->
     else
       $( "<img>" ).attr
         src: "http://chart.apis.google.com/chart?chs=480x480&cht=qr&chl=" +
-              "#{ window.location.href }?user_id=#{ user_id }",
+              "#{ window.location.href }?user_id=#{ window.user_id }",
         alt: "QRコード"
       .appendTo $( ".qr" )
 
@@ -59,7 +59,7 @@ shakeInit = ->
       ###
 
       dataStore.on "send", ( data )->
-        if data.value.action == "ok" && data.value.user_id == user_id
+        if data.value.action == "ok" && data.value.user_id == window.user_id
           $tutorial_container.velocity opacity: [ 0, 1 ], DUR, ->
             $tutorial_container.hide()
 
@@ -69,7 +69,7 @@ shakeInit = ->
         $( e.currentTarget ).addClass "on"
 
         dataStore.send
-          user_id: user_id
+          user_id: window.user_id
           action: "change"
           num: $( e.currentTarget ).data "num"
 
@@ -102,11 +102,11 @@ shakeInit = ->
       $shake.show()
 
       dataStore.send
-        user_id: user_id
+        user_id: window.user_id
         action: "ok"
 
       dataStore.on "send", ( data )->
-        if data.value.action == "change" && data.value.user_id == user_id
+        if data.value.action == "change" && data.value.user_id == window.user_id
           audio[ cur_audio ].pause()
           cur_audio = data.value.num
           $wrapper.attr "data-color": "#{ data.value.num + 1 }"
