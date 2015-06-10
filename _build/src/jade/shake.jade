@@ -12,9 +12,10 @@ block body
     div.soundBtn_container.pc
       p.soundBtn_msg 以下のボタンから音の種類を変えられます。
       - var voice = ["かわいい〜！", "虹コン！虹コン！", "(拍手)"];
+      - var num = [1, 3, 2];
       - for (var i=0; i<3; i++){
         p.soundBtn(data-num="#{i}")
-          button 1: #{voice[i]} 
+          button #{num[i]}: #{voice[i]} 
       - }
     div.tutorial_container.pc
       p.tutorial スマホの画面から "OK" を押してください。
