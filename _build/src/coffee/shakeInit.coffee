@@ -69,6 +69,7 @@ shakeInit = ->
 
       $soundBtn.eq( cur_audio ).addClass "on"
       $soundBtn.on "click", ( e )->
+        alert $( e.currentTarget ).data "num"
         $soundBtn.removeClass "on"
         $( e.currentTarget ).addClass "on"
 
@@ -111,6 +112,7 @@ shakeInit = ->
 
       dataStore.on "send", ( data )->
         if data.value.action == "change" && data.value.user_id == window.user_id
+          alert cur_audio
           audio[ cur_audio ].pause()
           cur_audio = data.value.num
           $wrapper.attr "data-color": "#{ data.value.num + 1 }"
