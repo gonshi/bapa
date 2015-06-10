@@ -1,12 +1,6 @@
 .wrapper-shake
   +transition(background-color 0.5s ease 0s)
-
-  &[data-color="1"]
-    background-color: #E66791
-  &[data-color="2"]
-    background-color: #659CC3
-  &[data-color="3"]
-    background-color: #E0DE6C
+  +bg("bg.jpg", 100% 100%)
 
   #{$is_sp}
     position: absolute
@@ -19,6 +13,13 @@
         +trbl(0, 0, 0, 0)
         background-color: rgba(0, 0, 0, 0.7)
         content: ""
+
+    &[data-color="1"]
+      background-color: #E66791
+    &[data-color="2"]
+      background-color: #659CC3
+    &[data-color="3"]
+      background-color: #E0DE6C
 
     .fromSp
       position: absolute
@@ -133,7 +134,13 @@
 
       &.on
         color: #fff
-        background-color: #000
+
+        &[data-num="0"]
+          background-color: #E66791
+        &[data-num="1"]
+          background-color: #659CC3
+        &[data-num="2"]
+          background-color: #E0DE6C
 
       &:first-child
         margin-top: 0
